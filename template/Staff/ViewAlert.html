@@ -1,0 +1,62 @@
+{% load static %} {% include 'Staff/PageHeader.html' %}
+<html>
+  <head>
+    <style>
+      #cs {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #cs td,
+      #cs th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #cs tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #cs tr:hover {
+        background-color: #ddd;
+      }
+
+      #cs th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+      }
+    </style>
+    <meta http-equiv="refresh" content="15" />
+  </head>
+  <body>
+    <div class="py-5 container">
+      <h2>Staff</h2>
+      <form autocomplete="off" id="form1" name="form1" method="post" action="">
+        {% csrf_token %}
+
+        <table width="318" border="0" id="cs">
+          <tr>
+            <td>Status is:</td>
+            <td>
+              {% if sta == 1 %} Alert : Pollution Detected.
+              <audio controls loop autoplay>
+                <source src="{% static 'alarm.mp3' %}" type="audio/mp3" />
+                Your browser does not support the audio element.
+              </audio>
+              {% else %} Safe : No pollution. {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+
+        <p><br /></p>
+      </form>
+    </div>
+  </body>
+</html>
+{% include 'LoginFooter.html' %}

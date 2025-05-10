@@ -1,0 +1,60 @@
+{% include 'Admin/PageHeader.html' %}
+
+<head>
+  <style>
+    #cs {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #cs td,
+    #cs th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #cs tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #cs tr:hover {
+      background-color: #ddd;
+    }
+
+    #cs th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<div class="py-5 container">
+  <h2>Air Pollution Diseases Report</h2>
+  <table id="cs">
+    <tr>
+      <td><h3>Name</h3></td>
+      <td><h3>Description</h3></td>
+    </tr>
+
+    {% for row in data %}
+    <tr>
+      <td><div align="left">{{ row.1 }}</div></td>
+      <td><div align="left">{{ row.2 }}</div></td>
+      <td width="80">
+        <div align="center">
+          <a href="/linkEditDisease/{{ row.0 }}">Edit</a>
+        </div>
+      </td>
+      <td width="80">
+        <div align="center">
+          <a href="/linkDeleteDisease/{{ row.0 }}">Delete</a>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% include 'LoginFooter.html' %}

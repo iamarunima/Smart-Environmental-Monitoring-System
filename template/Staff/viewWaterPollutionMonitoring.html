@@ -1,0 +1,60 @@
+{% include 'Staff/PageHeader.html' %}
+<head>
+  <style>
+    #cs {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #cs td,
+    #cs th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #cs tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #cs tr:hover {
+      background-color: #ddd;
+    }
+
+    #cs th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+    }
+  </style>
+</head>
+<div class="container py-5">
+  <div class="d-flex flex-wrap gap-1 justify-content-between">
+    <h2><a href="/staffHome">Home</a></h2>
+    <h2>View Water Pollution Report</h2>
+  </div>
+  <table id="cs">
+    <tr>
+      <td><h3>Sl.No</h3></td>
+      <td><h3>Lead</h3></td>
+      <td><h3>Arsenic</h3></td>
+      <td><h3>Mercury</h3></td>
+      <td><h3>Oil</h3></td>
+      <td><h3>Detected date</h3></td>
+      <td><h3>Device id</h3></td>
+    </tr>
+    {% for row in data %}
+
+    <tr>
+      <td height="87"><div align="center">{{ loop.index }}</div></td>
+      <td><div align="center">{{ row['lead'] }}</div></td>
+      <td><div align="center">{{ row['arsenic'] }}</div></td>
+      <td><div align="center">{{ row['mercury'] }}</div></td>
+      <td><div align="center">{{ row['oil'] }}</div></td>
+      <td><div align="center">{{ row['detected_date'] }}</div></td>
+      <td><div align="center">{{ row['device_id'] }}</div></td>
+
+      {% endfor %}
+    </tr>
+  </table>
+</div>

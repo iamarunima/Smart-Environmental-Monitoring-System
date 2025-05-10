@@ -1,0 +1,63 @@
+{% include 'Staff/PageHeader.html' %}
+<head>
+  <style>
+    #cs {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #cs td,
+    #cs th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #cs tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #cs tr:hover {
+      background-color: #ddd;
+    }
+
+    #cs th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+    }
+  </style>
+</head>
+<div class="py-5 container">
+  <div class="d-flex flex-wrap gap-1 justify-content-between">
+    <h2><a href="/staffHome">Home</a></h2>
+    <h2>View Air Pollution Report</h2>
+  </div>
+  <table id="cs">
+    <tr>
+      <td><h3>Sl.No</h3></td>
+      <td><h3>CO2</h3></td>
+      <td><h3>SO</h3></td>
+      <td><h3>NO</h3></td>
+      <td><h3>CO</h3></td>
+
+      <td><h3>butadiene</h3></td>
+      <td><h3>Simulator id</h3></td>
+      <td><h3>Pollution Date</h3></td>
+    </tr>
+    {% for row in data %}
+
+    <tr>
+      <td height="87"><div align="center">{{ loop.index }}</div></td>
+      <td><div align="center">{{ row['carbon_dioxide'] }}</div></td>
+      <td><div align="center">{{ row['sulfur_oxides'] }}</div></td>
+      <td><div align="center">{{ row['nitrogen_oxides'] }}</div></td>
+      <td><div align="center">{{ row['carbon_monoxide'] }}</div></td>
+      <td><div align="center">{{ row['butadiene'] }}</div></td>
+      <td><div align="center">{{ row['device_id'] }}</div></td>
+      <td><div align="center">{{ row['pollution_date'] }}</div></td>
+
+      {% endfor %}
+    </tr>
+  </table>
+</div>

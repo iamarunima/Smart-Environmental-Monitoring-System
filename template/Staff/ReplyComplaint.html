@@ -1,0 +1,18 @@
+{% include 'Staff/PageHeader.html' %}
+<div class="py-5">
+  <div class="container">
+    <h2>Reply</h2>
+
+    <form
+      autocomplete="off"
+      name="form1"
+      method="post"
+      action="/selectReplyStaff"
+    >
+      {% csrf_token %}
+      <textarea name="TxtReply" rows="5" cols="30" required class="w-100"></textarea>
+      <input autocomplete="off" type="submit" value="submit" class="btn mt-3 ms-auto" />
+    </form>
+  </div>
+</div>
+{% include 'LoginFooter.html' %}

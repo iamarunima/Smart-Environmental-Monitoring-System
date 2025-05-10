@@ -1,0 +1,56 @@
+{% include 'Admin/PageHeader.html' %}
+<div class="py-5 container">
+  <h2>Search Air Pollution Report</h2>
+
+  <form
+    autocomplete="off"
+    name="form1"
+    method="post"
+    action="/searchPollutionDetails"
+  >
+    {% csrf_token %}
+    <div class="row align-items-end">
+      <div class="col-12 col-md-6 col-xl-5">
+        <div className="input-holder">
+          <label class="h5 fw-medium" for="date_from_search_water_report"
+            >From</label
+          >
+          <input
+            autocomplete="off"
+            name="TxtFrom"
+            type="date"
+            required
+            id="date_from_search_water_report"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-5">
+        <div className="input-holder">
+          <label class="h5 fw-medium" for="date_to_search_water_report"
+            >To</label
+          >
+          <input
+            autocomplete="off"
+            name="TxtTo"
+            type="date"
+            required
+            id="date_to_search_water_report"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-xl-2">
+        <div class="btn-holder">
+          <input
+            autocomplete="off"
+            id="Submit1"
+            type="submit"
+            value="Search"
+            formaction="searchPollutionDetails"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% include 'LoginFooter.html' %}

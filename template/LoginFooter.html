@@ -1,0 +1,48 @@
+</div>
+  <!-- Footer -->
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">Copyright &copy; 2025 - All Rights Reserved - Smart Environmental Monitoring System</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-white me-3"><i class="bi bi-github"></i></a>
+          <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="../static/layout/scripts/jquery.min.js"></script>
+<script src="../static/layout/scripts/jquery.backtotop.js"></script>
+<script src="../static/layout/scripts/jquery.mobilemenu.js"></script>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="../static/layout/styles/bootstrap.bundle.min.js"></script>
+    <script>
+      // Back to top button
+      const myButton = document.getElementById("btn-back-to-top");
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          myButton.style.display = "block";
+        } else {
+          myButton.style.display = "none";
+        }
+      };
+
+      myButton.addEventListener("click", function () {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      });
+    </script>
+</body>
+</html>

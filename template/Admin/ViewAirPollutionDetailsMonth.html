@@ -1,0 +1,51 @@
+{% include 'Admin/PageHeader.html' %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div class="container py-5">
+    <h2>Search Air Pollution Details</h2>
+    <form
+      autocomplete="off"
+      id="form1"
+      name="form1"
+      method="post"
+      action="/searchAirMonth"
+    >
+      <table>
+        <tr>
+          <th>Month</th>
+          <td>
+            <select name="TxtMonth">
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </td>
+          <td>Year</td>
+          <td>
+            <select name="TxtYear">
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+            </select>
+          </td>
+          <td><input autocomplete="off" type="submit" value="search" /></td>
+        </tr>
+      </table>
+    </form>
+    </div>
+  </body>
+</html>
+{% include 'LoginFooter.html' %}

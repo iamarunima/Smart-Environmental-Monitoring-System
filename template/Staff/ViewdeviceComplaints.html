@@ -1,0 +1,64 @@
+{% include 'Staff/PageHeader.html' %}
+<head>
+  <style>
+    #cs {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #cs td,
+    #cs th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #cs tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #cs tr:hover {
+      background-color: #ddd;
+    }
+
+    #cs th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+    }
+  </style>
+</head>
+<div class="container py-5">
+  <div class="d-flex flex-wrap gap-1 justify-content-between">
+    <h2><a href="/staffHome">Home</a></h2>
+
+    <h2>Simulator Complaints Report</h2>
+  </div>
+  <table id="cs">
+    <tr>
+      <td><h3>Simulator id</h3></td>
+      <td><h3>Address</h3></td>
+      <td><h3>Pincode</h3></td>
+      <td><h3>Fix date</h3></td>
+    </tr>
+    {% for row in data %}
+
+    <tr>
+      <td height="87"><div align="center">{{ row['device_id'] }}</div></td>
+      <td><div align="center">{{ row['address'] }}</div></td>
+      <td><div align="center">{{ row['pincode'] }}</div></td>
+      <td><div align="center">{{ row['fix_date'] }}</div></td>
+
+      <td width="80">
+        <div align="center">
+          <a
+            href="/ViewComplaintStaff?id={{ row['device_id'] }}&lat={{ row['latitude'] }}&lon={{ row['longitude'] }}"
+            >View Complaint</a
+          >
+        </div>
+      </td>
+    </tr>
+
+    {% endfor %}
+  </table>
+</div>

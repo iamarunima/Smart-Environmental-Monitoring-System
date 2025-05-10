@@ -1,0 +1,111 @@
+{% include 'Admin/PageHeader.html' %}
+<html>
+
+<head>
+    <style>
+        #cs {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #cs td,
+        #cs th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #cs tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #cs tr:hover {
+            background-color: #ddd;
+        }
+
+        #cs th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="py-5">
+        <div class="container">
+            <h2>Staff</h2>
+            <form autocomplete="off" id="form1" name="form1" method="post" action="/addStaff">
+                {% csrf_token %}
+    
+                <table width="318" border="0" id="cs">
+                    <tr>
+                    <tr>
+                        <td>Staff id</td>
+                        <td><label><input autocomplete="off" name="staff_id" type="text" required title="characters only"
+                                    placeholder="Staff id"></label></td>
+                    </tr>
+    
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><label><input autocomplete="off" name="TxtName" type="text" required
+                                    pattern="^[a-zA-Z]+( [a-zA-Z]+)*$" title="characters only" placeholder="Name"></label>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td>Address</td>
+                        <td>
+                            <label>
+                                <textarea placeholder="Address" name="TxtAddress"></textarea>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>
+                            <label>
+                                <input autocomplete="off" type="text" placeholder="Phone" name="TxtPhone" required
+                                    pattern="[6-9]{1}[0-9]{9}" title="incorrect phone no" />
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <label>
+                                <input autocomplete="off" type="email" name="TxtEmail" placeholder="Mail" required
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                            </label>
+                        </td>
+                    </tr>
+    
+    
+                    <tr>
+    
+                        <td>Password</td>
+                        <td>
+                            <label>
+                                <input autocomplete="off" type="password" placeholder="Password" name="TxtPassword"
+                                    required />
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <label>
+                                <input autocomplete="off" type="submit" name="Submit" value="Submit" />
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+                <p><br></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+{% include 'LoginFooter.html' %}

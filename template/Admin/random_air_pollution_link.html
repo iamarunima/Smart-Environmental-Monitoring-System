@@ -1,0 +1,152 @@
+{% include 'Admin/PageHeader.html' %}
+<html>
+  <head>
+    <style>
+      #cs {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #cs td,
+      #cs th {
+        padding: 8px;
+      }
+
+      #cs tr:hover {
+        background-color: #ddd;
+      }
+
+      #cs th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+      }
+      textarea {
+        background-color: #f0efed;
+        height: 30px;
+        border: 2px solid green;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <script>
+    var auto_refresh = setInterval(function () {
+      document.getElementById("myForm").submit();
+    }, 10000);
+
+    function submitform() {
+      alert("test");
+      document.myForm.submit();
+    }
+  </script>
+  <body>
+    <div class="py-5">
+      <div class="container">
+        <h2>Air SENSOR VALUE</h2>
+        <form
+          autocomplete="off"
+          id="myForm"
+          name="myForm"
+          method="post"
+          action="/random_air_pollution"
+        >
+          {% csrf_token %}
+          <table width="318" border="0" id="cs">
+            <tr>
+              <td>Device id</td>
+              <td>
+                <label>
+                  <input
+                    autocomplete="off"
+                    type="text"
+                    name="id"
+                    value="d116"
+                  />
+                </label>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Carbon Dioxide</td>
+              <td>
+                <label>
+                  <input
+                    autocomplete="off"
+                    type="text"
+                    name="num1"
+                    class="form-control"
+                    value="{{request.session.num1}}"
+                    required
+                  />
+                </label>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Sulfur Oxide</td>
+              <td>
+                <label>
+                  <input
+                    autocomplete="off"
+                    type="text"
+                    name="num2"
+                    class="form-control"
+                    value="{{request.session.num2}}"
+                    readonly
+                  />
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>Nitrogen Oxide</td>
+              <td>
+                <label>
+                  <input
+                    autocomplete="off"
+                    type="text"
+                    name="num3"
+                    class="form-control"
+                    value="{{request.session.num3}}"
+                    readonly
+                  />
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>Carbon Monoxide</td>
+              <td>
+                <label>
+                  <input
+                    autocomplete="off"
+                    type="text"
+                    name="num4"
+                    class="form-control"
+                    value="{{request.session.num4}}"
+                    readonly
+                  />
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>Butadiene</td>
+              <td>
+                <label>
+                  <input
+                    autocomplete="off"
+                    type="text"
+                    name="num5"
+                    class="form-control"
+                    value="{{request.session.num5}}"
+                    readonly
+                  />
+                </label>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+{% include 'LoginFooter.html' %}

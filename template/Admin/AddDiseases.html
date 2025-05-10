@@ -1,0 +1,95 @@
+{% include 'Admin/PageHeader.html' %}
+<html>
+  <head>
+    <style>
+      #cs {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #cs td,
+      #cs th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #cs tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #cs tr:hover {
+        background-color: #ddd;
+      }
+
+      #cs th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="py-5 container">
+      <h2>Add Diseases</h2>
+      <form
+        autocomplete="off"
+        id="form1"
+        name="form1"
+        method="post"
+        action="/addDiseases"
+      >
+        {% csrf_token %}
+
+        <table width="318" border="0" id="cs">
+          <tr>
+            <td>Name</td>
+            <td>
+              <label>
+                <input
+                  autocomplete="off"
+                  type="text"
+                  name="TxtName"
+                  pattern="^[a-zA-Z0-9._%+-]+( [a-zA-Z0-9._%+-]+)*$"
+                  required
+                />
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>
+              <label>
+                <textarea type="text" name="TxtDescription" required></textarea>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Pollution type</td>
+            <td>
+              <select name="TxtType">
+                <option value="Water">Water</option>
+                <option value="Air">Air</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>&nbsp;</td>
+            <td>
+              <label>
+                <input
+                  autocomplete="off"
+                  type="submit"
+                  name="Submit"
+                  value="Submit"
+                />
+              </label>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
+{% include 'LoginFooter.html' %}

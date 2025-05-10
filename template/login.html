@@ -1,0 +1,150 @@
+{% include 'LoginHeader.html' %}
+<html lang="en">
+  <head>
+    <style>
+      .login_page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        width: 400px;
+        max-width: 100%;
+        margin: auto;
+      }
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+      .form-control {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+      }
+      .error-message {
+        color: #dc3545;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 0.25rem;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .error-message.show {
+        display: block;
+      }
+    </style>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll("input");
+
+        inputs.forEach((input) => {
+          // Disable autocomplete
+          input.setAttribute("autocomplete", "off");
+
+          // Disable copy, paste, cut, and right-click
+          ["copy", "paste", "cut", "contextmenu"].forEach((evt) =>
+            input.addEventListener(evt, (e) => e.preventDefault())
+          );
+
+          // Disable Ctrl/Cmd + shortcuts (C, V, X, A)
+          input.addEventListener("keydown", (e) => {
+            if (
+              (e.ctrlKey || e.metaKey) &&
+              ["c", "v", "x", "a"].includes(e.key.toLowerCase())
+            ) {
+              e.preventDefault();
+            }
+          });
+        });
+      });
+
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </head>
+  <body>
+    <main class="login_page">
+      <div class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow">
+              <div class="card-body text-center py-4">
+                <div class="mb-4">
+                  <i
+                    class="bi bi-shield-lock text-primary"
+                    style="font-size: 3rem"
+                  ></i>
+                </div>
+                <h5 class="card-title mb-3">Login to Your Account</h5>
+                
+                {% if error_message %}
+                <div class="error-message show mb-3">
+                  <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                  {{ error_message }}
+                </div>
+                {% endif %}
+
+                <form
+                  autocomplete="off"
+                  id="form1"
+                  name="form1"
+                  method="post"
+                  action="/login1"
+                  class="text-start px-3"
+                >
+                  {% csrf_token %}
+
+                  <div class="form-group mb-3">
+                    <label for="uname">Username</label>
+                    <input
+                      autocomplete="off"
+                      type="text"
+                      name="un"
+                      id="uname"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label for="passwd">Password</label>
+                    <input
+                      autocomplete="off"
+                      type="password"
+                      name="pass"
+                      id="passwd"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+
+                  <div class="d-flex flex-wrap gap-2 mt-4 justify-content-center align-items-center">
+                    <a href="/" class="btn btn-outline-secondary">Go Home</a>
+                    <input
+                      autocomplete="off"
+                      name="login"
+                      type="submit"
+                      id="login"
+                      class="btn btn-primary px-4"
+                      value="Login"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+{% include 'LoginFooter.html' %}

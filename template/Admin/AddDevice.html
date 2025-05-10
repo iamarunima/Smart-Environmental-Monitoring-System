@@ -1,0 +1,138 @@
+{% include 'Admin/PageHeader.html' %}
+<html>
+  <head>
+    <style>
+      #cs {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #cs td,
+      #cs th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+  
+      #cs tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #cs tr:hover {
+        background-color: #ddd;
+      }
+
+      #cs th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="py-5 container">
+      <h2>Add Simulator</h2>
+      <form
+        autocomplete="off"
+        id="form1"
+        name="form1"
+        method="post"
+        action="/addDevice"
+      >
+        {% csrf_token %}
+
+        <table width="318" border="0" id="cs">
+          <tr>
+            <td>Simulator id</td>
+            <td>
+              <label>
+                <textarea name="id"></textarea>
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Address</td>
+            <td>
+              <label>
+                <textarea name="TxtAddress"></textarea>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Pincode</td>
+            <td>
+              <label>
+                <input
+                  autocomplete="off"
+                  type="text"
+                  name="TxtPincode"
+                  required
+                  pattern="^\d{6}$"
+                  title="incorrect pincode"
+                />
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Latitude</td>
+            <td>
+              <label>
+                <input
+                  autocomplete="off"
+                  type="number"
+                  name="TxtLatitude"
+                  required
+                  step="0.0001"
+                  min="0"
+                  max="10000"
+                />
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Longitude</td>
+            <td>
+              <label>
+                <input
+                  autocomplete="off"
+                  type="number"
+                  name="TxtLongitude"
+                  required
+                  step="0.0001"
+                  min="0"
+                  max="10000"
+                />
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Device Type</td>
+            <td>
+              <label>
+                <select name="device_type" id="device_type">
+                  <option selected value="Air">Air</option>
+                  <option value="Water">Sound</option>
+                </select>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>
+              <label>
+                <input
+                  autocomplete="off"
+                  type="submit"
+                  name="Submit"
+                  value="Submit"
+                />
+              </label>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
+{% include 'LoginFooter.html' %}
