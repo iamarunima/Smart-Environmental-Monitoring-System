@@ -1,4 +1,3 @@
-
 <!--
 Template Name: Miresa
 Author: <a href="https://www.os-templates.com/">OS Templates</a>
@@ -7,168 +6,443 @@ Licence: Free to use under our free template licence terms
 Licence URI: https://www.os-templates.com/template-terms
 -->
 <html lang="">
-<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
-<head>
-<title>Smart Enviornmental Monitoring System</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="../static/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-</head>
-<body id="top">
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- Top Background Image Wrapper -->
-<div class="bgded overlay light" style="background-image:url('../static/images/demo/backgrounds/a7.jpg');">
-  <!-- ################################################################################################ -->
-  <div class="wrapper row0">
-    <div id="topbar" class="hoc clear">
-      <!-- ################################################################################################ -->
-      <ul class="nospace">
-        <li><a href="../index.html"><i class="fa fa-lg fa-home"></i></a></li>
-        <li><a href="#" title="Call Us"><i class="fa fa-phone"></i></a></li>
-        <li><a href="#" title="Send a Mail"><i class="fa fa-envelope-o"></i></a></li>
-        <li><a href="#" title="Login"><i class="fa fa-lg fa-sign-in"></i></a></li>
-        <li><a href="#" title="Sign Up"><i class="fa fa-lg fa-edit"></i></a></li>
-      </ul>
-      <!-- ################################################################################################ -->
-    </div>
-  </div>
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <div class="wrapper row1">
-    <header id="header" class="hoc clear">
-      <!-- ################################################################################################ -->
-      <div id="logo" class="fl_left">
-        <h1><a href="/adminHome">Smart Environmental Monitoring System</a></h1>
-      </div>
-      <nav id="mainav" class="fl_right">
-        <ul class="clear">
-          <li><a href="../adminHome">Home</a></li>
-             <li><a class="drop" href="../linkaddStaff">Staff</a>
-            <ul>
-              <li><a href="../linkaddStaff">Add Staff</a></li>
-              <li><a href="../viewStaff">View Staff</a></li>
-               <li><a href="../viewAllStaffAssignedDevice">Staff Assigned Simulator</a></li>
-            </ul>
-          </li>
-          <li><a class="drop" href="../linkAddDevice">Simulator</a>
-            <ul>
-              <li><a href="../linkAddDevice">Add Simulator</a></li>
-              <li><a href="../viewDevice">View Simulator</a></li>
-            </ul>
-          </li>
-          <li><a class="drop" href="../viewAirPollutionDetails">Pollution Details</a>
-            <ul>
-              <li><a href="../viewAirPollutionDetails">Air Pollution Details</a></li>
-
-
-            </ul>
-          </li>
-           <li><a class="drop" href="../LinkAddDisease">Disease</a>
-            <ul>
-              <li><a href="../LinkAddDisease">Add Disease</a></li>
-              <li><a href="../viewDisease">View Air Pollution Disease</a></li>
-               <li><a href="../viewWaterPollutionDisease">View Water Pollution Disease</a></li>
-            </ul>
-          </li>
-           <li><a class="drop" href="../viewAirPollutionDetails">Report</a>
-            <ul>
-              <li><a href=../"viewAirPollutionDetails">Air Pollution Details</a></li>
-              <li><a href="../viewWaterPollutionDetails">View Water Pollution Details</a></li>
-               <li><a href="../LinkviewPollutionDetailsDate">View Air Pollution Details Based On Date</a></li>
-
-               <li><a href="../viewComplaintReport">Complaint Report</a></li>
-            </ul>
-          </li>
-
-          <li><a href="../viewComplaint">Complaints</a></li>
-                                        <li><a href="../random_air_pollution_link">random air pollution</a></li>
-
-          <li><a href="LogOut">LogOut</a></li>
-
-        </ul>
-      </nav>
-      <!-- ################################################################################################ -->
-    </header>
-  </div>
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-
-  <!-- ################################################################################################ -->
-</div>
-<!-- End Top Background Image Wrapper -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row3">
-  <main class="hoc container clear">
-    <!-- main body -->
-    <!-- ################################################################################################ -->
-    <div class="content">
-<head>
+  <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+   <head>
+    <title>Smart Enviornmental Monitoring System</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <!-- Bootstrap 5 CSS -->
+    <link href="../static/layout/styles/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
     <style>
-        #cs {
-            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
+      :root {
+        --primary-color: #198754;
+        --secondary-color: #0d6efd;
+        --accent-color: #6c757d;
+      }
 
-            #cs td, #cs th {
+      .bg-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("../static/images/demo/backgrounds/a2.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 50px 0;
+        min-height: calc(100vh - 40px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .navbar {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      .footer {
+        background-color: #212529;
+        color: white;
+        padding: 20px 0;
+      }
+
+       #cs {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #cs td,
+      #cs th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        background-color: transparent;
+        color: #7a7a7a;
+      }
+  
+      #cs tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #cs tr:hover {
+        background-color: #ddd;
+      }
+
+      #cs th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+      }
+    </style>
+    <link
+      href="../static/layout/styles/layout.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+  </head>
+  <body id="top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="../adminHome">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-people me-1"></i>Staff
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../linkaddStaff">Add Staff</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../viewStaff">View Staff</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../viewAllStaffAssignedDevice"
+                    >Staff Assigned Simulator</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-cpu me-1"></i>Simulator
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../linkAddDevice"
+                    >Add Simulator</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../viewDevice"
+                    >View Simulator</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-graph-up me-1"></i>Pollution Details
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../viewAirPollutionDetails"
+                    >Air Pollution Details</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../linkViewWaterPollutionDetailsMonth"
+                    >View Water Pollution Details</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../random_air_pollution_link"
+                    >random air pollution</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../random_water_pollution_link"
+                    >random water pollution</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-virus me-1"></i>Disease
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../LinkAddDisease"
+                    >Add Disease</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../viewDisease"
+                    >View Air Pollution Disease</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../viewWaterPollutionDisease"
+                    >View Water Pollution Disease</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-file-earmark-text me-1"></i>Report
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../viewAirPollutionDetails"
+                    >Air Pollution Details</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../viewWaterPollutionDetails"
+                    >View Water Pollution Details</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../LinkviewPollutionDetailsDate"
+                    >View Air Pollution Details Based On Date</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../viewComplaintReport"
+                    >Complaint Report</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../viewComplaint">
+                <i class="bi bi-exclamation-circle me-1"></i>Complaints
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../random_air_pollution_link">
+                <i class="bi bi-wind me-1"></i>Random Air Pollution
+              </a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-person-circle me-1"></i>Admin
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="bi bi-gear me-2"></i>Settings</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="bi bi-person me-2"></i>Profile</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="../LogOut"
+                    ><i class="bi bi-box-arrow-right me-2"></i>Logout</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="wrapper row3">
+      <main class="hoc container clear">
+        <!-- main body -->
+
+        <div class="content">
+          <head>
+            <style>
+              #cs {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+              }
+
+              #cs td,
+              #cs th {
                 border: 1px solid #ddd;
                 padding: 8px;
-            }
+              }
 
-            #cs tr:nth-child(even) {
+              #cs tr:nth-child(even) {
                 background-color: #f2f2f2;
-            }
+              }
 
-            #cs tr:hover {
+              #cs tr:hover {
                 background-color: #ddd;
-            }
+              }
 
-            #cs th {
+              #cs th {
                 padding-top: 12px;
                 padding-bottom: 12px;
                 text-align: left;
-            }
-    </style>
-</head>
-<div align="center">
-    <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h2>Edit Simulator</h2>
-<form autocomplete="off"  id="form1" name="form1" method="post" action="/editDevice" >
-    {% csrf_token %}
-    <table id="cs">
-<tr>
-      <input autocomplete="off" type="hidden" name="id" id="dd"value="{{ data.0 }}" required/>
-    </tr>
-        <tr><th>Simulator id</th><td>{{ data.0 }}</td></tr>
-        <tr><th>Address</th><td><textarea name="TxtAddress" type="text" value="{{ data.1 }}" required>{{ data.1 }}</textarea></td></tr>
-        <tr><th>Pincode</th><td><input autocomplete="off" name="TxtPincode" type="text" value="{{ data.2 }}" required pattern="^\d{6}$" title="incorrect pincode"></td></tr>
-        <tr><th>Latitude</th><td><input autocomplete="off" name="TxtLatitude" type="number" value="{{ data.4 }}" step="0.0001" min="0" max="10000" required></td></tr>
-        <tr><th>Longitude</th><td><input autocomplete="off" name="TxtLongitude" type="number" value="{{ data.5 }}" step="0.0001" min="0" max="10000" required></td></tr>
-        <tr><th>Selected Type</th><td>
-        <select name="device_type" id="device_type">
-                              <option selected value={{ data.6 }}>{{ data.6 }}</option>
-                                <option value="Air">Air</option>
-                                <option value="Water">Water</option>
-                        </select>
-        </td></tr>
+              }
+            </style>
+          </head>
+          <div align="center">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <h2>Edit Simulator</h2>
+            <form
+              autocomplete="off"
+              id="form1"
+              name="form1"
+              method="post"
+              action="/editDevice"
+            >
+              {% csrf_token %}
+              <table id="cs">
+                <tr>
+                  <input
+                  class="form-control"
+                    autocomplete="off"
+                    type="hidden"
+                    name="id"
+                    id="dd"
+                    value={{ data.0 }}
+                    required
+                  />
+                </tr>
+                <tr>
+                  <th>Simulator id</th>
+                  <td>{{ data.0 }}</td>
+                </tr>
+                <tr>
+                  <th>Address</th>
+                  <td>
+                    <textarea
+                    class="form-control textarea"
+                      name="TxtAddress"
+                      type="text"
+                      value={{ data.1 }}
+                      required
+                    >{{ data.1 }}</textarea
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <th>Pincode</th>
+                  <td>
+                    <input
+                    class="form-control"
+                      autocomplete="off"
+                      name="TxtPincode"
+                      type="text"
+                      value={{ data.2 }}
+                      required
+                      pattern="^\d{6}$"
+                      title="incorrect pincode"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Latitude</th>
+                  <td>
+                    <input
+                    class="form-control"
+                      autocomplete="off"
+                      name="TxtLatitude"
+                      type="number"
+                      value={{ data.4 }}
+                      step="0.0001"
+                      min="0"
+                      max="10000"
+                      required
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Longitude</th>
+                  <td>
+                    <input
+                    class="form-control"
+                      autocomplete="off"
+                      name="TxtLongitude"
+                      type="number"
+                      value={{ data.5 }}
+                      step="0.0001"
+                      min="0"
+                      max="10000"
+                      required
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>Selected Type</th>
+                  <td>
+                    <select name="device_type" id="device_type" class="form-control select">
+                      <option selected value={{ data.6 }}>{{ data.6 }}</option>
+                      <option value="Air">Air</option>
+                      <option value="Water">Water</option>
+                    </select>
+                  </td>
+                </tr>
 
-        <tr>
-            <th>  </th>
-            <td> <input autocomplete="off" type="submit" value="Update" class="btn btn-default" /></td>
-        </tr>
-
-    </table>
-</form>
+                <tr>
+                  <th></th>
+                  <td>
+                    <input
+                      autocomplete="off"
+                      type="submit"
+                      value="Update"
+                      class="btn btn-default"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </div>
+          <p>&nbsp;</p>
+        </div>
+      </main>
     </div>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+  </body>
+</html>
 {% include 'LoginFooter.html' %}

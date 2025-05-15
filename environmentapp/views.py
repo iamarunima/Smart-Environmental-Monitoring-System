@@ -1,8 +1,9 @@
 import random
 
-from django.db import connection
+from django.db import connection, IntegrityError
 from django.shortcuts import render, redirect, HttpResponse
 from django.http import HttpResponse
+from django.contrib import messages
 
 
 # Create your views here.
@@ -68,16 +69,30 @@ def linkaddStaff(request):
 
 def addStaff(request):
     if request.method == "POST":
-        staff_id = request.POST['staff_id']
-        name = request.POST['TxtName']
-        address = request.POST['TxtAddress']
-        phone = request.POST['TxtPhone']
-        email = request.POST['TxtEmail']
-        password = request.POST['TxtPassword']
-        cursor = connection.cursor()
-        cursor.execute(
-            "insert into monitoring_staff values('" + staff_id + "','" + name + "','" + phone + "','" + email + "','" + address + "','" + password + "')")
-        return HttpResponse("<script>alert('Staff registered succesfully');window.location='/adminHome';</script>")
+        staff_id  = request.POST['staff_id']
+        name      = request.POST['TxtName']
+        address   = request.POST['TxtAddress']
+        phone     = request.POST['TxtPhone']
+        email     = request.POST['TxtEmail']
+        password  = request.POST['TxtPassword']
+
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    """
+                    INSERT INTO monitoring_staff
+                    (staff_id, name, phone, email, address, password)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                    """,
+                    [staff_id, name, phone, email, address, password]
+                )
+        except IntegrityError as e:
+            messages.error(request, f"A staff member with ID '{staff_id}' already exists.")
+            return redirect('addStaff')   # or render(request, "Admin/AddStaff.html")
+
+        messages.success(request, "Staff registered successfully!")
+        return redirect('adminHome')
+
     return render(request, "Admin/AddStaff.html")
 
 
@@ -119,7 +134,7 @@ def editStaff(request):
         res = cursor.fetchone()
         if res == None:
             cursor = connection.cursor()
-            cursor(
+            cursor.execute(
                 "update monitoring_staff set name='" + name + "',address='" + address + "',phone='" + phone + "',email='" + email + "',password='" + password + "' where staff_id='" + id + "'")
             return HttpResponse("<script>alert('Updated succesfully');window.location='/viewStaff';</script>")
         return HttpResponse("<script>alert('Email id Already Exist');window.location='/viewStaff';</script>")

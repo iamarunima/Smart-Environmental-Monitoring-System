@@ -98,6 +98,35 @@ Licence URI: https://www.os-templates.com/template-terms
         type="text/css"
         media="all"
       />
+          <style>
+        #cs {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #cs td,
+        #cs th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background-color: transparent;
+            color: #7a7a7a;
+        }
+
+        #cs tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #cs tr:hover {
+            background-color: #ddd;
+        }
+
+        #cs th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+        }
+    </style>
   </head>
   <body id="top">
     <!-- Navigation -->
@@ -334,11 +363,12 @@ Licence URI: https://www.os-templates.com/template-terms
               <table id="cs">
                 <tr>
                   <input
+                  class="form-control"
                     autocomplete="off"
                     type="hidden"
                     name="id"
                     id="dd"
-                    value="{{ data.0}}"
+                    value={{ data.0}}
                     required
                   />
                 </tr>
@@ -350,10 +380,11 @@ Licence URI: https://www.os-templates.com/template-terms
                   <th>Name</th>
                   <td>
                     <input
+                    class="form-control"
                       autocomplete="off"
                       name="TxtName"
                       type="text"
-                      value="{{ data.1 }}"
+                      value={{ data.1 }}
                       pattern="^[a-zA-Z]+( [a-zA-Z]+)*$"
                       required
                     />
@@ -363,10 +394,11 @@ Licence URI: https://www.os-templates.com/template-terms
                   <th>Address</th>
                   <td>
                     <input
+                    class="form-control"
                       autocomplete="off"
                       name="TxtAddress"
                       type="text"
-                      value="{{ data.4 }}"
+                      value={{ data.4 }}
                       required
                     />
                   </td>
@@ -375,28 +407,34 @@ Licence URI: https://www.os-templates.com/template-terms
                   <th>Phone</th>
                   <td>
                     <input
+                    id="addstaff_phone"
+                    class="form-control"
                       autocomplete="off"
                       name="TxtPhone"
-                      type="text"
-                      value="{{ data.2 }}"
+                      type="tel"
+                      value={{ data.2 }}
                       pattern="[6-9]{1}[0-9]{9}"
                       title="incorrect phone number"
                       required
                     />
+                    <span id="phoneError" style="font-size: 12px; color: red;"></span>
                   </td>
                 </tr>
                 <tr>
                   <th>Email</th>
                   <td>
                     <input
+                    id="addstaff_email"
+                    class="form-control"
                       autocomplete="off"
                       name="TxtEmail"
-                      type="text"
-                      value="{{ data.3 }}"
+                      type="email"
+                      value={{ data.3 }}
                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                       title="please input a valid email"
                       required
                     />
+                    <span id="emailError" style="font-size: 12px; color: red;"></span>
                   </td>
                 </tr>
 
@@ -404,10 +442,11 @@ Licence URI: https://www.os-templates.com/template-terms
                   <th>Password</th>
                   <td>
                     <input
+                    class="form-control"
                       autocomplete="off"
                       name="TxtPassword"
                       type="text"
-                      value="{{ data.5 }}"
+                      value={{ data.5 }}
                       required
                     />
                   </td>
@@ -451,5 +490,55 @@ Licence URI: https://www.os-templates.com/template-terms
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
           });
         </script>
+         <script>
+  const emailInput = document.getElementById("addstaff_email");
+  const emailError = document.getElementById("emailError");
+  const phoneInput = document.getElementById("addstaff_phone");
+  const phoneError = document.getElementById("phoneError");
+  const form = document.getElementById("form1");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^[6-9]{1}[0-9]{9}$/;
+
+  // Live email validation
+  emailInput.addEventListener("input", () => {
+    if (emailRegex.test(emailInput.value)) {
+      emailError.textContent = "";
+    } else {
+      emailError.textContent = "Please enter a valid email address.";
+    }
+  });
+
+  // Only allow digits in phone field
+  phoneInput.addEventListener("input", () => {
+    phoneInput.value = phoneInput.value.replace(/[^0-9]/g, "");
+    if (phoneRegex.test(phoneInput.value)) {
+      phoneError.textContent = "";
+    } else {
+      phoneError.textContent =
+        "Please enter a valid Phone number";
+    }
+  });
+
+  // Final form submit validation
+  form.addEventListener("submit", (e) => {
+    let valid = true;
+
+    if (!emailRegex.test(emailInput.value)) {
+      emailError.textContent = "Please enter a valid email address.";
+      valid = false;
+    }
+
+    if (!phoneRegex.test(phoneInput.value)) {
+      phoneError.textContent =
+        "Please enter a valid Phone number";
+      valid = false;
+    }
+
+    if (!valid) {
+      e.preventDefault(); // stop submission
+    }
+  });
+</script>
   </body>
 </html>

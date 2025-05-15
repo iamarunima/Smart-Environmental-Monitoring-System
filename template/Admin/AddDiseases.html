@@ -47,6 +47,7 @@
             <td>
               <label>
                 <input
+                class="form-control"
                   autocomplete="off"
                   type="text"
                   name="TxtName"
@@ -60,14 +61,14 @@
             <td>Description</td>
             <td>
               <label>
-                <textarea type="text" name="TxtDescription" required></textarea>
+                <textarea class="form-control textarea" type="text" name="TxtDescription" required></textarea>
               </label>
             </td>
           </tr>
           <tr>
             <td>Pollution type</td>
             <td>
-              <select name="TxtType">
+              <select name="TxtType" class="form-control select">
                 <option value="Water">Water</option>
                 <option value="Air">Air</option>
               </select>
@@ -79,6 +80,7 @@
             <td>
               <label>
                 <input
+                class="btn btn-primary"
                   autocomplete="off"
                   type="submit"
                   name="Submit"
